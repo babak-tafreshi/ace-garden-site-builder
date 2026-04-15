@@ -30,11 +30,9 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between">
-        {/* Logo placeholder */}
+        {/* Logo */}
         <a href="#home" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
-            <span className="font-heading text-accent-foreground font-bold text-lg">A</span>
-          </div>
+          <img src="/logo.png" alt="Ace Garden Suite" className="w-10 h-10 rounded-lg" />
           <span className={`font-heading font-bold text-lg ${scrolled ? "text-foreground" : "text-card"}`}>
             Ace Garden Suite
           </span>

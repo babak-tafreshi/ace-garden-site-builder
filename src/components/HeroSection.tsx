@@ -26,12 +26,12 @@ const HeroSection = () => (
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up-delay-2">
         <a href="#contact">
-          <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-base px-8 py-6 font-semibold">
+          <Button size="lg" className="bg-accent text-foreground hover:bg-accent/90 text-base px-8 py-6 font-semibold">
             Contact Us
           </Button>
         </a>
         <a href="#projects">
-          <Button size="lg" variant="outline" className="border-card/30 text-card hover:bg-card/10 text-base px-8 py-6 font-semibold">
+          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-base px-8 py-6 font-semibold">
             View Projects
           </Button>
         </a>

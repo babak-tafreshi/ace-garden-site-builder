@@ -7,9 +7,11 @@ import { useToast } from "@/hooks/use-toast";
 import emailjs from "@emailjs/browser";
 
 // TODO: Replace these with your actual EmailJS credentials
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+const EMAILJS_SERVICE_ID = "service_mj6caer";
+const EMAILJS_TEMPLATE_ID = "template_xh9pawh";
+const EMAILJS_PUBLIC_KEY = "pZfXFXwB7E693cVnj";
+
+const RECIPIENT_EMAILS = ["babaktafreshi9@gmail.com", "sibeas@ymail.com"];
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -21,16 +23,23 @@ const ContactSection = () => {
     setSending(true);
 
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          from_email: form.email,
-          phone: form.phone,
-          message: form.message,
-        },
-        EMAILJS_PUBLIC_KEY
+      const formData = {
+        from_name: form.name,
+        from_email: form.email,
+        phone: form.phone,
+        message: form.message,
+      };
+
+      // Send email to both recipients
+      await Promise.all(
+        RECIPIENT_EMAILS.map(email =>
+          emailjs.send(
+            EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_ID,
+            { ...formData, to_email: email },
+            EMAILJS_PUBLIC_KEY
+          )
+        )
       );
 
       toast({ title: "Message sent!", description: "We'll get back to you shortly." });
