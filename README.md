@@ -5,7 +5,7 @@ This repository is a Vite + React project configured for GitHub Pages deployment
 ## Deployment
 
 - The production build is generated into `dist/` using `npm run build`.
-- GitHub Pages deploys from the `dist/` output via the workflow in `.github/workflows/pages.yml`.
+- GitHub Pages deploys from the `dist/` output to the `gh-pages` branch using the workflow in `.github/workflows/pages.yml`.
 - The custom domain is configured with `CNAME` in `public/`.
 
 ## Local development

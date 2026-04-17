@@ -33,10 +33,10 @@ jobs:
           cp CNAME dist/CNAME
           touch dist/.nojekyll
 
-      - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: dist
-
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: peaceiris/actions-gh-pages@v5
+        with:
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          commit_message: "Deploy site to gh-pages"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
